@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "NicheTube",
+  "version": "1.0.0",
+  "description": "Customize your YouTube recommendations by filtering content",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://*.youtube.com/*"
+  ],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["src/Scripts/Content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "src/Scripts/Background.js",
+    "type": "module"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
